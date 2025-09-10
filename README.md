@@ -59,8 +59,10 @@ API_TOKEN=your_api_token_here
 
 Update .gitignore to exclude local secrets and environment files:
 
+```
 .env
 .venv/
+```
 
 
 
@@ -68,13 +70,17 @@ Update .gitignore to exclude local secrets and environment files:
 
 ### Option 1: Run manually
 
+```
 python -u obsidian.py
+```
 
 ### Option 2: Run with inline environment variables
 
+```
 VAULT_URL="https://127.0.0.1:27124/vault" \
 API_TOKEN="your_api_token_here" \
 python obsidian.py
+```
 
 
 
