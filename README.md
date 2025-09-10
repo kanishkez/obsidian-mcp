@@ -1,7 +1,8 @@
 
+
 # Obsidian MCP Server
 
-This project provides an **MCP server** that connects Claude (or any MCP client) to your Obsidian vault through the **Obsidian Local REST API**.
+This project provides an **MCP server** that connects Claude (or any MCP client) to your Obsidian vault through the **Obsidian Local REST API**. It allows you to work with Obsidian directly to edit files and can even write notes in your vault.
 
 ---
 
@@ -28,27 +29,33 @@ Clone or copy this project and ensure the following files are present:
 
 Create a `requirements.txt` file:
 
-txt
+
+```
 fastmcp
 requests
 python-dotenv
 PyPDF2
+```
 
 Install dependencies:
 
-```python -m venv .venv
+```
+python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt```
+pip install -r requirements.txt
+```
 
 
 ⸻
 
-Configuration
+## Configuration
 
 Create a .env file in the project root:
 
-```VAULT_URL=https://127.0.0.1:27124/vault
-API_TOKEN=your_api_token_here```
+```
+VAULT_URL=https://127.0.0.1:27124/vault
+API_TOKEN=your_api_token_here
+```
 
 Update .gitignore to exclude local secrets and environment files:
 
@@ -58,27 +65,26 @@ Update .gitignore to exclude local secrets and environment files:
 
 ⸻
 
-Running the Server
+## Running the Server
 
-Option 1: Run manually
+### Option 1: Run manually
 
-```python -u obsidian.py```
+python -u obsidian.py
 
-Option 2: Run with inline environment variables
+### Option 2: Run with inline environment variables
 
-```VAULT_URL="https://127.0.0.1:27124/vault" \
+VAULT_URL="https://127.0.0.1:27124/vault" \
 API_TOKEN="your_api_token_here" \
-python obsidian.py```
+python obsidian.py
 
 
-⸻
 
-Claude Desktop Integration
+## Claude Desktop Integration
 
 To connect Claude Desktop, add this server to your MCP config.
 Example JSON snippet:
-
-```{
+```
+{
   "name": "Obsidian MCP Server",
   "command": ["/usr/bin/env", "python3", "-u", "/absolute/path/to/obsidian.py"],
   "cwd": "/absolute/path/to/project",
@@ -87,16 +93,6 @@ Example JSON snippet:
     "VAULT_URL": "https://127.0.0.1:27124/vault",
     "API_TOKEN": "your_api_token_here"
   }
-}```
+}
+```
 
-
-⸻
-
-Notes
-	•	The .env values (VAULT_URL, API_TOKEN) remain valid until changed in Obsidian.
-	•	Claude can now call the exposed tools:
-	•	read_file
-	•	add_file
-	•	write_file
-	•	delete_file
-	•	http_request
