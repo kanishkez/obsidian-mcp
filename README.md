@@ -28,7 +28,7 @@ Clone or copy this project and ensure the following files are present:
 
 Create a `requirements.txt` file:
 
-```txt
+txt
 fastmcp
 requests
 python-dotenv
