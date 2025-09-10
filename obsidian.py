@@ -7,7 +7,7 @@ from typing import Dict, Optional
 load_dotenv()
 VAULT_URL = os.getenv("VAULT_URL")
 API_TOKEN = os.getenv("API_TOKEN")
-VERIFY_SSL = os.getenv("VERIFY_SSL", "true").lower() == "true"
+VERIFY_SSL = os.getenv("VERIFY_SSL", "true").lower() == "false"
 
 DEFAULT_HEADERS = {
     "Authorization": f"Bearer {API_TOKEN}",
