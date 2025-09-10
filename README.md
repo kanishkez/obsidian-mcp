@@ -63,7 +63,6 @@ Update .gitignore to exclude local secrets and environment files:
 .venv/
 
 
-⸻
 
 ## Running the Server
 
